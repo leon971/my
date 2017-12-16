@@ -7,7 +7,7 @@ class Users < ActiveRecord::Migration[5.1]
   		t.int :owner_id
   		t.int :addres_id
   	end
-  	say 'wddawwad'
+  	say 'wddawwad1'
   	create_table :wallets do |t|
       t.string :name
       t.int :user_id

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Banks</title>
+    <title><%= raw @page_title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,9 @@
   </head>
 
   <body>
+  	<% if flash[:notice].present? %>
+  	<div id ="notice"> <%= flash[:notice].html_safe %> </div>
+  	<% end %>
     <%= yield %>
   </body>
 </html>
