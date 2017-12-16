@@ -5,12 +5,6 @@ class ApplicationController < ActionController::Base
   end
   def current_user
   	@current_user = User.find_by_id(session[:user_id].to_i)
-  	logger.fatal '----------------------'
-  	logger.fatal '----------------------'
-  	logger.fatal @current_user
-  	logger.fatal '----------------------'
-  	logger.fatal '----------------------'
-
   	return @current_user
   end
   def flash_errors_for(message, object)
@@ -32,9 +26,6 @@ class ApplicationController < ActionController::Base
 	  session[:username] = user.username
 	  session[:usertype] = 'loged'
 	  session[:login] = 1
-      logger.fatal '@@@@@@@@@@@@@@@@@@'
-      logger.fatal user.id
 	  session[:user_id] = user.id
-
 	end
 end

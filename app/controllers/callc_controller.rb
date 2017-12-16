@@ -2,13 +2,6 @@ class CallcController < ApplicationController
 	before_action :authorize, except: %i(login try_to_login)
 	def main
 		@u = current_user
-		logger.fatal '======================='
-		logger.fatal '======================='
-		logger.fatal '======================='
-        logger.fatal @u
-		logger.fatal '======================='
-		logger.fatal '======================='
-
 	end
 	def login
 	  if session[:login].to_i == 0
@@ -32,7 +25,7 @@ class CallcController < ApplicationController
 	  (redirect_to :root) && (return false)
 	end
 	def logout
-			  session[:username] = 'guest'
+	  session[:username] = 'guest'
 	  session[:usertype] = 'guest'
 	  session[:login] = 0
 	  session[:user_id] = nil
