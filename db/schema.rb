@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171216110707) do
+=======
+ActiveRecord::Schema.define(version: 20171216111818) do
+>>>>>>> d2f0a26a2b84bdc9081777c0d9b3a223ae62bfc7
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email"
@@ -44,7 +48,11 @@ ActiveRecord::Schema.define(version: 20171216110707) do
   create_table "wallets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "user_id"
+<<<<<<< HEAD
     t.integer "blcok"
+=======
+    t.integer "block"
+>>>>>>> d2f0a26a2b84bdc9081777c0d9b3a223ae62bfc7
   end
 
 end

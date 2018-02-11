@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   	@heloo = 'ef'
   end
   def current_user
+<<<<<<< HEAD
   	@current_user = User.find(session[:user_id].to_i)
+=======
+  	@current_user = User.find_by_id(session[:user_id].to_i)
+>>>>>>> d2f0a26a2b84bdc9081777c0d9b3a223ae62bfc7
   	return @current_user
   end
   def flash_errors_for(message, object)

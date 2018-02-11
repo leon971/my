@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+<<<<<<< HEAD
 
 	before_action :authorize
 
@@ -8,5 +9,7 @@ class UserController < ApplicationController
       end
       head :ok
 	end
+=======
+>>>>>>> d2f0a26a2b84bdc9081777c0d9b3a223ae62bfc7
 end
 
