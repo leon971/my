@@ -1,0 +1,6 @@
+<%= form_tag action: 'try_to_login' do %>
+<%= text_field 'login', 'username', size: 18 %>
+<%= text_field 'login', 'psw', size: 18 %>
+<%= submit_tag 'login' %>
+<% end %>
+<%= link_to "Registration", controller: :callc, action: :registration %>

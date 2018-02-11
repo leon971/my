@@ -1,0 +1,24 @@
+
+
+<%= @u.username %>
+</br>
+<%= link_to "LogOut", controller: "callc", action: "logout" %>
+
+<ul id="sort" data-url="<%= url_for controller: :user, action: :change_priority %>">
+
+ <% User.order(:priority).each do |user| %>
+ <li id="user_<%= user.id %>"><%= user.username %></li>
+ <% end %> 
+</ul>
+<script type="text/javascript">
+	jQuery('#sort').sortable({
+		update: function(){
+			$.ajax({
+				url: $(this).data("url"),
+				method: "POST",
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+				data: $(this).sortable('serialize')
+			})
+		}
+	});
+</script>
