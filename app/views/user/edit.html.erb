@@ -1,0 +1,6 @@
+<%= form_tag action: 'update', user_id: @user.id do %>
+<%= text_field_tag 'username', @user.username, size: 18 %><br/> <br/>
+<%= text_field_tag 'password', @user.password, size: 18 %><br/> <br/>
+<%= select_tag 'usertype', options_for_select([ 'simple', 'admin' ], @user.usertype) %><br/> <br/>
+<%= submit_tag 'Update' %>
+<% end %>

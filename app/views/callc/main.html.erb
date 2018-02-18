@@ -7,7 +7,7 @@
 <ul id="sort" data-url="<%= url_for controller: :user, action: :change_priority %>">
 
  <% User.order(:priority).each do |user| %>
- <li id="user_<%= user.id %>"><%= user.username %></li>
+ <li id="user_<%= user.id %>"><a href=<%= url_for controller: :user, action: :edit, id: user.id %> ><%= user.username %></a></li>
  <% end %> 
 </ul>
 <script type="text/javascript">

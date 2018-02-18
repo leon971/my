@@ -1,5 +1,6 @@
 class CallcController < ApplicationController
   before_action :authorize, except: %i(login try_to_login register registration)
+  before_action :check_uniq_user, only: :register
   def main
     @u = current_user
   end
@@ -56,6 +57,14 @@ class CallcController < ApplicationController
     session[:login] = 0
     session[:user_id] = nil
     (redirect_to :root) && (return false)
+  end
+
+  def check_uniq_user
+    new_username = params[:register][:username]
+    if User.find_by(username: new_username).present?
+      flash[:notice] = 'Username is exists'
+      redirect_to(controller: 'callc', action: 'registration') && (return false)
+    end
   end
 
 end
