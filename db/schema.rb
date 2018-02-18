@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218135639) do
+ActiveRecord::Schema.define(version: 20180218184446) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email"
@@ -20,6 +20,51 @@ ActiveRecord::Schema.define(version: 20180218135639) do
     t.integer "amount"
     t.string "name"
     t.integer "block"
+  end
+
+  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "link"
+    t.integer "order_id"
+    t.text "comment"
+    t.integer "price"
+    t.string "currency"
+    t.integer "accept"
+  end
+
+  create_table "order_actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "order_id"
+    t.text "action_text"
+    t.string "data_1"
+    t.string "data_2"
+    t.string "data_3"
+  end
+
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "comment"
+    t.string "name"
+    t.integer "order_number"
+    t.integer "owner_id"
+    t.integer "user_id"
+    t.integer "status_id"
+    t.date "date"
+    t.integer "blocked"
+    t.integer "step"
+    t.integer "price"
+    t.string "currency"
+  end
+
+  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.text "text"
+    t.text "comment"
+  end
+
+  create_table "taxes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.integer "value"
+    t.string "currency"
+    t.integer "order_id"
+    t.integer "pernament"
   end
 
   create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
